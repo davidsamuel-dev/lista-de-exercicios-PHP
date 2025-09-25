@@ -16,7 +16,28 @@
 
     <main>
 
-    <!-- implementação da solução -->
+   <form method="post">
+            <label for="numero">Digite um número inteiro:</label>
+            <input type="number" name="numero" id="numero" min="0" required>
+            <button type="submit">Calcular Fatorial</button>
+        </form>
+
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (isset($_POST['numero'])) {
+                $numero = intval($_POST['numero']);
+                $fatorial = 1;
+
+                // Loop para calcular o fatorial
+                for ($i = $numero; $i > 1; $i--) {
+                    $fatorial *= $i;
+                }
+
+                echo "<h3>Resultado:</h3>";
+                echo "<p>O fatorial de $numero! é <strong>$fatorial</strong>.</p>";
+            }
+        }
+        ?>
      
     </main>
 </body>

@@ -15,9 +15,23 @@
     </header>
 
     <main>
+        <form method="post">
+            <label for="metros">Valor em metros (m):</label>
+            <input type="number" name="metros" id="metros" step="0.01" required>
+            <button type="submit">Converter</button>
+        </form>
 
-    <!-- implementação da solução -->
-     
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // Verifica se o campo 'metros' foi enviado e não está vazio
+            if (isset($_POST['metros']) && !empty($_POST['metros'])) {
+                $metros = $_POST['metros'];
+                $centimetros = $metros * 100;
+                echo "<h3>Resultado:</h3>";
+                echo "<p>$metros metros é igual a $centimetros centímetros.</p>";
+            }
+        }
+        ?>     
     </main>
 </body>
 

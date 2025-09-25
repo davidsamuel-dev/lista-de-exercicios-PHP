@@ -16,7 +16,19 @@
 
     <main>
 
-    <!-- implementação da solução -->
+    <h3>Números ímpares de 1 a 50:</h3>
+        <p>
+            <?php
+            $impares = [];
+            for ($i = 1; $i <= 50; $i++) {
+                // Se o resto da divisão por 2 for diferente de 0, é ímpar
+                if ($i % 2 != 0) {
+                    $impares[] = $i;
+                }
+            }
+            echo implode(", ", $impares);
+            ?>
+        </p>
      
     </main>
 </body>
